@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/wisetradeai/static/css/main.e6c13ad2.css",
+    "main.js": "/wisetradeai/static/js/main.ddb3cecc.js",
+    "static/js/453.63d69632.chunk.js": "/wisetradeai/static/js/453.63d69632.chunk.js",
+    "index.html": "/wisetradeai/index.html",
+    "main.e6c13ad2.css.map": "/wisetradeai/static/css/main.e6c13ad2.css.map",
+    "main.ddb3cecc.js.map": "/wisetradeai/static/js/main.ddb3cecc.js.map",
+    "453.63d69632.chunk.js.map": "/wisetradeai/static/js/453.63d69632.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.ddb3cecc.js"
+  ]
+}
