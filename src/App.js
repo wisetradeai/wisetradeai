@@ -520,31 +520,40 @@ const App = () => {
 
                 /* Pricing Grid */
                 .pricing-grid {
-                  display: flex;
-                  flex-direction: row;
+                  display: grid;
+                  grid-template-columns: 1fr;
                   gap: 2rem;
-                  overflow-x: auto;
-                  padding-bottom: 1rem;
-                  scrollbar-width: thin;
-                  scrollbar-color: #3b82f6 #1a202c;
                 }
-                .pricing-grid::-webkit-scrollbar {
-                  height: 10px;
+                @media (min-width: 768px) {
+                  .pricing-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 1.5rem;
+                  }
                 }
-                .pricing-grid::-webkit-scrollbar-thumb {
-                  background: #3b82f6;
-                  border-radius: 8px;
+                @media (min-width: 1024px) {
+                  .pricing-grid {
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 1.25rem;
+                  }
                 }
-                .pricing-grid::-webkit-scrollbar-track {
-                  background: #1a202c;
-                  border-radius: 8px;
+                @media (min-width: 1200px) {
+                  .pricing-grid {
+                    grid-template-columns: repeat(5, 1fr);
+                    gap: 1rem;
+                  }
                 }
-
                 .pricing-card {
-                  min-width: 340px;
-                  max-width: 380px;
-                  flex: 0 0 auto;
-                  margin-bottom: 1rem;
+                  width: 100%;
+                  max-width: none;
+                  min-width: 0;
+                  padding: 1.5rem; /* 24px */
+                  position: relative;
+                  text-align: center;
+                  border: 1px solid #2d3748;
+                  display: flex; /* Flex container for content */
+                  flex-direction: column;
+                  justify-content: space-between; /* Distribute space */
+                  min-height: 380px; /* Increased height for better visual balance and content spacing */
                 }
 
                 .pricing-card-popular {
