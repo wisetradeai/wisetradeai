@@ -520,54 +520,31 @@ const App = () => {
 
                 /* Pricing Grid */
                 .pricing-grid {
-                  display: flex; /* Changed to flex */
-                  flex-direction: column; /* Stacked vertically by default */
-                  align-items: center; /* Center items horizontally */
-                  gap: 2rem; /* 32px */
+                  display: flex;
+                  flex-direction: row;
+                  gap: 2rem;
+                  overflow-x: auto;
+                  padding-bottom: 1rem;
+                  scrollbar-width: thin;
+                  scrollbar-color: #3b82f6 #1a202c;
                 }
-                /* Media queries to adjust layout for larger screens */
-                @media (min-width: 768px) {
-                  .pricing-grid {
-                    flex-direction: row; /* Back to row for tablets */
-                    flex-wrap: wrap; /* Allow wrapping */
-                    justify-content: center; /* Center items when wrapping */
-                    gap: 1.5rem; /* Reduced gap for more cards per row */
-                  }
-                  .pricing-card {
-                    width: calc(50% - 1.5rem); /* Two columns on tablets, accounting for gap */
-                    max-width: 350px; /* Max width for individual cards */
-                  }
+                .pricing-grid::-webkit-scrollbar {
+                  height: 10px;
                 }
-                @media (min-width: 1024px) {
-                  .pricing-grid {
-                    gap: 1.25rem; /* Smaller gap for more cards */
-                  }
-                  .pricing-card {
-                    width: calc(33.333% - 1.25rem); /* Three columns on desktops */
-                    max-width: 300px; /* Slightly smaller max-width */
-                  }
+                .pricing-grid::-webkit-scrollbar-thumb {
+                  background: #3b82f6;
+                  border-radius: 8px;
                 }
-                @media (min-width: 1200px) { /* Even wider screens, can fit all 5 */
-                  .pricing-grid {
-                    grid-template-columns: repeat(5, 1fr); /* Re-introducing grid for specific 5-column layout */
-                    gap: 1rem;
-                    display: grid; /* Use grid for explicit 5-column layout */
-                  }
-                  .pricing-card {
-                    width: auto; /* Let grid handle width */
-                    max-width: none; /* Remove max-width when using grid for 5 columns */
-                  }
+                .pricing-grid::-webkit-scrollbar-track {
+                  background: #1a202c;
+                  border-radius: 8px;
                 }
 
                 .pricing-card {
-                  padding: 1.5rem; /* 24px */
-                  position: relative;
-                  text-align: center;
-                  border: 1px solid #2d3748;
-                  display: flex; /* Flex container for content */
-                  flex-direction: column;
-                  justify-content: space-between; /* Distribute space */
-                  min-height: 380px; /* Increased height for better visual balance and content spacing */
+                  min-width: 340px;
+                  max-width: 380px;
+                  flex: 0 0 auto;
+                  margin-bottom: 1rem;
                 }
 
                 .pricing-card-popular {
@@ -593,23 +570,28 @@ const App = () => {
                   color: #ffffff;
                 }
 
-                .pricing-title {
-                  font-size: 1.5rem; /* 24px */
-                  font-weight: 700;
-                  color: #60a5fa; /* blue-400 */
-                  margin-bottom: 0.75rem; /* 12px */
+                .pricing-title,
+                .pricing-price-bold {
+                  word-break: break-word;
+                  overflow-wrap: break-word;
+                  white-space: normal;
+                  text-align: center;
+                }
+
+                .pricing-price-bold {
+                  font-size: clamp(2rem, 5vw, 2.5rem); /* Responsive font size */
+                }
+
+                @media (min-width: 768px) {
+                  .pricing-price-bold {
+                    font-size: clamp(2.5rem, 4vw, 3.5rem);
+                  }
                 }
 
                 .pricing-price {
                   font-size: 1.125rem; /* 18px */
                   color: #cbd5e1;
                   margin-bottom: 1.5rem; /* 24px */
-                }
-
-                .pricing-price-bold {
-                  font-size: 2.5rem; /* 40px */
-                  font-weight: 800;
-                  color: #ffffff;
                 }
 
                 .pricing-features-list {
